@@ -1,8 +1,8 @@
-import { ProductCard } from "@/components/product-card"
-import { products } from "@/lib/data"
+import { products } from '../lib/data';
+import { ProductCard } from './product-card';
 
 export function FeaturedProducts() {
-  const featuredProducts = products.slice(0, 4)
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -10,5 +10,5 @@ export function FeaturedProducts() {
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
-  )
+  );
 }
