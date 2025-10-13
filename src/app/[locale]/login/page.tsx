@@ -45,7 +45,6 @@ export default function LoginPage() {
         toast({
           title: 'Login failed',
           description: 'Please enter valid credentials.',
-          variant: 'destructive',
         });
       }
       setIsLoading(false);

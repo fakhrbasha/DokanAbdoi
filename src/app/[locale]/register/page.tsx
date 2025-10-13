@@ -50,7 +50,6 @@ export default function RegisterPage() {
       toast({
         title: "Passwords don't match",
         description: 'Please make sure your passwords match.',
-        variant: 'destructive',
       });
       return;
     }
@@ -59,7 +58,6 @@ export default function RegisterPage() {
       toast({
         title: 'Accept terms',
         description: 'Please accept the terms and conditions.',
-        variant: 'destructive',
       });
       return;
     }
