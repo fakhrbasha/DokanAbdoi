@@ -1,26 +1,35 @@
-"use client"
+'use client';
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { products } from "@/lib/data"
-import { Heart, ShoppingCart, Star, Truck, Shield, RotateCcw } from "lucide-react"
-import { useState } from "react"
-import { ProductCard } from "@/components/product-card"
-import { useParams } from "next/navigation"
-import { useCartStore, useWishlistStore } from "@/lib/store"
-import { useToast } from "@/hooks/use-toast"
+import {
+  Heart,
+  ShoppingCart,
+  Star,
+  Truck,
+  Shield,
+  RotateCcw,
+} from 'lucide-react';
+import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { products } from '../../lib/data';
+import { useCartStore, useWishlistStore } from '../../lib/store';
+import { useToast } from '../../hooks/use-toast';
+import { Navbar } from '../../components/navbar';
+import { Footer } from '../../components/footer';
+import { Button } from '../../components/ui/button';
+import { ProductCard } from '../../components/product-card';
 
 export default function ProductDetailPage() {
-  const params = useParams()
-  const product = products.find((p) => p.id === params.id)
-  const [quantity, setQuantity] = useState(1)
+  const params = useParams();
+  const product = products.find((p) => p.id === params.id);
+  const [quantity, setQuantity] = useState(1);
 
-  const addToCart = useCartStore((state) => state.addItem)
-  const addToWishlist = useWishlistStore((state) => state.addItem)
-  const removeFromWishlist = useWishlistStore((state) => state.removeItem)
-  const isInWishlist = useWishlistStore((state) => (product ? state.isInWishlist(product.id) : false))
-  const { toast } = useToast()
+  const addToCart = useCartStore((state) => state.addItem);
+  const addToWishlist = useWishlistStore((state) => state.addItem);
+  const removeFromWishlist = useWishlistStore((state) => state.removeItem);
+  const isInWishlist = useWishlistStore((state) =>
+    product ? state.isInWishlist(product.id) : false
+  );
+  const { toast } = useToast();
 
   if (!product) {
     return (
@@ -28,40 +37,44 @@ export default function ProductDetailPage() {
         <Navbar />
         <main className="flex-1 container mx-auto px-4 py-16 text-center">
           <h1 className="text-4xl font-bold mb-4">Product Not Found</h1>
-          <p className="text-muted-foreground">The product you're looking for doesn't exist.</p>
+          <p className="text-muted-foreground">
+            The product you're looking for doesn't exist.
+          </p>
         </main>
         <Footer />
       </div>
-    )
+    );
   }
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
-      addToCart(product)
+      addToCart(product);
     }
     toast({
-      title: "Added to cart",
+      title: 'Added to cart',
       description: `${quantity} x ${product.name} added to your cart.`,
-    })
-  }
+    });
+  };
 
   const handleToggleWishlist = () => {
     if (isInWishlist) {
-      removeFromWishlist(product.id)
+      removeFromWishlist(product.id);
       toast({
-        title: "Removed from wishlist",
+        title: 'Removed from wishlist',
         description: `${product.name} removed from your wishlist.`,
-      })
+      });
     } else {
-      addToWishlist(product)
+      addToWishlist(product);
       toast({
-        title: "Added to wishlist",
+        title: 'Added to wishlist',
         description: `${product.name} added to your wishlist.`,
-      })
+      });
     }
-  }
+  };
 
-  const relatedProducts = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 4)
+  const relatedProducts = products
+    .filter((p) => p.category === product.category && p.id !== product.id)
+    .slice(0, 4);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -74,7 +87,7 @@ export default function ProductDetailPage() {
             {/* Product Image */}
             <div className="aspect-square bg-muted rounded-lg overflow-hidden">
               <img
-                src={product.image || "/placeholder.svg"}
+                src={product.image || '/placeholder.svg'}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
@@ -83,8 +96,12 @@ export default function ProductDetailPage() {
             {/* Product Info */}
             <div className="flex flex-col">
               <div className="mb-4">
-                <p className="text-sm text-primary font-semibold mb-2">{product.brand}</p>
-                <h1 className="text-4xl font-bold mb-4 text-balance">{product.name}</h1>
+                <p className="text-sm text-primary font-semibold mb-2">
+                  {product.brand}
+                </p>
+                <h1 className="text-4xl font-bold mb-4 text-balance">
+                  {product.name}
+                </h1>
 
                 <div className="flex items-center gap-4 mb-4">
                   <div className="flex items-center gap-1">
@@ -92,7 +109,9 @@ export default function ProductDetailPage() {
                       <Star
                         key={i}
                         className={`h-5 w-5 ${
-                          i < Math.floor(product.rating) ? "fill-primary text-primary" : "text-muted"
+                          i < Math.floor(product.rating)
+                            ? 'fill-primary text-primary'
+                            : 'text-muted'
                         }`}
                       />
                     ))}
@@ -103,23 +122,37 @@ export default function ProductDetailPage() {
                 </div>
 
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-4xl font-bold text-primary">${product.price}</span>
+                  <span className="text-4xl font-bold text-primary">
+                    ${product.price}
+                  </span>
                   {product.originalPrice && (
                     <>
-                      <span className="text-2xl text-muted-foreground line-through">${product.originalPrice}</span>
+                      <span className="text-2xl text-muted-foreground line-through">
+                        ${product.originalPrice}
+                      </span>
                       <span className="px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm font-semibold">
-                        Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+                        Save{' '}
+                        {Math.round(
+                          ((product.originalPrice - product.price) /
+                            product.originalPrice) *
+                            100
+                        )}
+                        %
                       </span>
                     </>
                   )}
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed mb-6">{product.description}</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {product.description}
+                </p>
 
                 {product.inStock ? (
                   <p className="text-green-600 font-semibold mb-6">In Stock</p>
                 ) : (
-                  <p className="text-destructive font-semibold mb-6">Out of Stock</p>
+                  <p className="text-destructive font-semibold mb-6">
+                    Out of Stock
+                  </p>
                 )}
               </div>
 
@@ -136,19 +169,37 @@ export default function ProductDetailPage() {
                       -
                     </Button>
                     <span className="px-6 py-2 font-semibold">{quantity}</span>
-                    <Button variant="ghost" size="sm" onClick={() => setQuantity(quantity + 1)} className="px-4">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="px-4"
+                    >
                       +
                     </Button>
                   </div>
                 </div>
 
                 <div className="flex gap-3">
-                  <Button size="lg" className="flex-1 gap-2" disabled={!product.inStock} onClick={handleAddToCart}>
+                  <Button
+                    size="lg"
+                    className="flex-1 gap-2"
+                    disabled={!product.inStock}
+                    onClick={handleAddToCart}
+                  >
                     <ShoppingCart className="h-5 w-5" />
                     Add to Cart
                   </Button>
-                  <Button size="lg" variant="outline" onClick={handleToggleWishlist}>
-                    <Heart className={`h-5 w-5 ${isInWishlist ? "fill-primary text-primary" : ""}`} />
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    onClick={handleToggleWishlist}
+                  >
+                    <Heart
+                      className={`h-5 w-5 ${
+                        isInWishlist ? 'fill-primary text-primary' : ''
+                      }`}
+                    />
                   </Button>
                 </div>
               </div>
@@ -159,21 +210,27 @@ export default function ProductDetailPage() {
                   <Truck className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-semibold">Free Shipping</p>
-                    <p className="text-sm text-muted-foreground">On orders over $50</p>
+                    <p className="text-sm text-muted-foreground">
+                      On orders over $50
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Shield className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-semibold">Secure Payment</p>
-                    <p className="text-sm text-muted-foreground">100% secure transactions</p>
+                    <p className="text-sm text-muted-foreground">
+                      100% secure transactions
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <RotateCcw className="h-5 w-5 text-primary" />
                   <div>
                     <p className="font-semibold">Easy Returns</p>
-                    <p className="text-sm text-muted-foreground">30-day return policy</p>
+                    <p className="text-sm text-muted-foreground">
+                      30-day return policy
+                    </p>
                   </div>
                 </div>
               </div>
@@ -193,8 +250,6 @@ export default function ProductDetailPage() {
           )}
         </div>
       </main>
-
-      <Footer />
     </div>
-  )
+  );
 }

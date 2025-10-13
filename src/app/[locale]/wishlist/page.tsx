@@ -1,15 +1,14 @@
-"use client"
+'use client';
 
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { useWishlistStore } from "@/lib/store"
-import { Heart } from "lucide-react"
-import Link from "next/link"
-import { ProductCard } from "@/components/product-card"
+import { Heart } from 'lucide-react';
+import Link from 'next/link';
+import { Navbar } from '../components/navbar';
+import { Button } from '../components/ui/button';
+import { useWishlistStore } from '../lib/store';
+import { ProductCard } from '../components/product-card';
 
 export default function WishlistPage() {
-  const { items, clearWishlist } = useWishlistStore()
+  const { items, clearWishlist } = useWishlistStore();
 
   if (items.length === 0) {
     return (
@@ -19,15 +18,16 @@ export default function WishlistPage() {
           <div className="max-w-2xl mx-auto text-center">
             <Heart className="h-24 w-24 mx-auto mb-6 text-muted-foreground" />
             <h1 className="text-4xl font-bold mb-4">Your Wishlist is Empty</h1>
-            <p className="text-muted-foreground mb-8">Save your favorite items here to purchase later.</p>
+            <p className="text-muted-foreground mb-8">
+              Save your favorite items here to purchase later.
+            </p>
             <Link href="/products">
               <Button size="lg">Browse Products</Button>
             </Link>
           </div>
         </main>
-        <Footer />
       </div>
-    )
+    );
   }
 
   return (
@@ -51,8 +51,6 @@ export default function WishlistPage() {
           ))}
         </div>
       </main>
-
-      <Footer />
     </div>
-  )
+  );
 }
