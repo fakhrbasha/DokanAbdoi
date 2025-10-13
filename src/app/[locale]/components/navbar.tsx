@@ -14,10 +14,10 @@ import Image from 'next/image';
 export function Navbar() {
   const cartCount = useCartStore((state: any) => state.getTotalItems());
   const wishlistCount = useWishlistStore((state: any) => state.items.length);
-  const t = useTranslations('Navbar');
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  // const t = useTranslations('Navbar');
 
   const toggleLocale = () => {
     const nextLocale = locale === 'en' ? 'ar' : 'en';
@@ -60,9 +60,15 @@ export function Navbar() {
             {/* 🔹 Logo */}
             <Link
               href="/"
-              className="flex items-center space-x-2 flex-shrink-0"
+              className="flex items-center space-x-2 flex-shrink-0 overflow-hidden"
             >
-              <Image src={'/logo.png'} alt="" width={500} height={500} />
+              <img
+                src={'/logo.png'}
+                alt="logo"
+                width={500}
+                height={500}
+                className="w-44 h-24"
+              />
             </Link>
 
             {/* 🔹 Search (يتوسع وياخد النص كله) */}
