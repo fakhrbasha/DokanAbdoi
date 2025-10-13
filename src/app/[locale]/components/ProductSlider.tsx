@@ -10,7 +10,7 @@ const products = [
     model: 'MDRT580MTN46',
     price: 25999,
     oldPrice: 29999,
-    image: '/hero/sale.webp',
+    image: '/Hero/sale.webp',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const products = [
     model: 'UFN-230EBG1A',
     price: 19950,
     oldPrice: 26000,
-    image: '/hero/sale2.webp',
+    image: '/Hero/sale2.webp',
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const products = [
     model: 'WMH10AP',
     price: 5299,
     oldPrice: 5510,
-    image: '/hero/sec2.webp',
+    image: '/Hero/sec2.webp',
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const products = [
     model: 'WMH10B',
     price: 5249,
     oldPrice: 5699,
-    image: '/hero/sec2i.webp',
+    image: '/Hero/sec2i.webp',
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ const products = [
     model: 'DGI 6L DF NG',
     price: 3897,
     oldPrice: 4053,
-    image: '/hero/sec6.webp',
+    image: '/Hero/sec6.webp',
   },
   {
     id: 6,
@@ -50,7 +50,7 @@ const products = [
     model: 'DGI 6L DF NG',
     price: 3897,
     oldPrice: 4053,
-    image: '/hero/sec6i.webp',
+    image: '/Hero/sec6i.webp',
   },
   {
     id: 7,
@@ -58,7 +58,7 @@ const products = [
     model: 'DGI 6L DF NG',
     price: 3897,
     oldPrice: 4053,
-    image: '/hero/sec6ii.webp',
+    image: '/Hero/sec6ii.webp',
   },
 ];
 

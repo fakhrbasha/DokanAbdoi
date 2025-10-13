@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 export default function GridSlider() {
-  const slides = ['/hero/sale.webp', '/hero/sale2.webp', '/hero/sec2.webp'];
+  const slides = ['/Hero/sale.webp', '/Hero/sale2.webp', '/Hero/sec2.webp'];
   const [current, setCurrent] = useState(0);
 
   // ⏱️ Auto slide
