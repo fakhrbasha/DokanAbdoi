@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { SwipeCarousel } from './SwipeCarousel';
+import ProductSlider from './ProductSlider';
+import GridSlider from './GridSlider';
 
 export default function HeroGrid() {
   return (
@@ -41,6 +43,8 @@ export default function HeroGrid() {
 
           <div className="lg:col-span-3">
             <SwipeCarousel />
+            {/* <ProductSlider /> */}
+            {/* <GridSlider /> */}
           </div>
         </div>
 

@@ -17,8 +17,7 @@ const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 50;
 
 const SPRING_OPTIONS = {
-  type: 'spring',
-  mass: 1,
+  type: 'spring' as const,
   stiffness: 250,
   damping: 30,
 };
@@ -29,13 +28,21 @@ export const SwipeCarousel = () => {
   const dragX = useMotionValue(0);
   const autoRef = useRef<number | null>(null);
 
-  // animate dragX position whenever index changes
+  // ✅ animate dragX whenever index changes
   useEffect(() => {
     const width = containerRef.current?.offsetWidth ?? 0;
-    animate(dragX, -imgIndex * width, SPRING_OPTIONS);
+
+    // ✅ Correct Framer Motion 11 syntax (target directly as second arg)
+    const controls = animate(dragX, -imgIndex * width, {
+      type: 'spring',
+      stiffness: 250,
+      damping: 30,
+    });
+
+    return () => controls.stop();
   }, [imgIndex, dragX]);
 
-  // auto-play every AUTO_DELAY seconds
+  // ✅ auto-play
   useEffect(() => {
     autoRef.current = window.setInterval(() => {
       setImgIndex((pv) => (pv === imgs.length - 1 ? 0 : pv + 1));
@@ -45,6 +52,7 @@ export const SwipeCarousel = () => {
     };
   }, []);
 
+  // ✅ drag logic
   const onDragEnd = () => {
     const x = dragX.get();
     const width = containerRef.current?.offsetWidth ?? 1;
@@ -81,7 +89,6 @@ export const SwipeCarousel = () => {
         <Images imgIndex={imgIndex} />
       </motion.div>
 
-      {/* الأسهم */}
       <ArrowButton direction="left" onClick={prevSlide} />
       <ArrowButton direction="right" onClick={nextSlide} />
 
@@ -90,7 +97,6 @@ export const SwipeCarousel = () => {
   );
 };
 
-// ✅ الصور مضبوطة لملء المستطيل بالكامل
 const Images = ({ imgIndex }: { imgIndex: number }) => {
   return (
     <>
@@ -99,13 +105,17 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
           key={idx}
           style={{
             backgroundImage: `url(${imgSrc})`,
-            backgroundSize: 'cover', // يملأ الصورة بدون تمديد
+            backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
           animate={{
             scale: imgIndex === idx ? 1 : 0.97,
           }}
-          transition={SPRING_OPTIONS}
+          transition={{
+            type: 'spring',
+            stiffness: 250,
+            damping: 30,
+          }}
           className="flex-shrink-0 w-full h-full rounded-xl bg-neutral-800"
         />
       ))}
@@ -113,7 +123,6 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
   );
 };
 
-// الأسهم
 const ArrowButton = ({
   direction,
   onClick,
@@ -137,7 +146,6 @@ const ArrowButton = ({
   );
 };
 
-// التدرجات الجانبية
 const GradientEdges = () => {
   return (
     <>
