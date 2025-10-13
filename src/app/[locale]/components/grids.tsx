@@ -11,7 +11,7 @@ export default function HeroGrid() {
       <div className="container mx-auto px-4">
         <div className="mb-2 rounded-lg overflow-hidden">
           <Image
-            src="/hero/1bank.webp"
+            src="/Hero/1bank.webp"
             width={1000}
             height={500}
             alt="بنك مصر"
@@ -23,7 +23,7 @@ export default function HeroGrid() {
           <div className="flex flex-col gap-1">
             <div className="bg-[#f5f5f5] rounded-lg overflow-hidden">
               <Image
-                src="/hero/sale.webp"
+                src="/Hero/sale.webp"
                 width={500}
                 height={300}
                 alt="خصم الأثاث"
@@ -32,7 +32,7 @@ export default function HeroGrid() {
             </div>
             <div className="bg-[#f5f5f5] rounded-lg overflow-hidden">
               <Image
-                src="/hero/sale2.webp"
+                src="/Hero/sale2.webp"
                 width={500}
                 height={300}
                 alt="عروض التوفير"

@@ -22,7 +22,7 @@ export default function HomePage() {
           <div className="grid grid-cols-4 grid-rows-2 gap-4">
             <div className="col-span-2 row-span-2">
               <Image
-                src="/hero/sec2.webp"
+                src="/Hero/sec2.webp"
                 alt="صورة 1"
                 width={1000}
                 height={1000}
@@ -32,7 +32,7 @@ export default function HomePage() {
 
             <div className="col-span-2 row-span-2 col-start-3">
               <Image
-                src="/hero/sec2i.webp"
+                src="/Hero/sec2i.webp"
                 alt="صورة 2"
                 width={1000}
                 height={1000}
@@ -46,7 +46,7 @@ export default function HomePage() {
           <div className="grid grid-cols-4 grid-rows-2 gap-2">
             <div className="row-span-2">
               <Image
-                src={'/hero/sec3.webp'}
+                src={'/Hero/sec3.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -55,7 +55,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec3i.webp'}
+                src={'/Hero/sec3i.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -64,7 +64,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec3ii.webp'}
+                src={'/Hero/sec3ii.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -73,7 +73,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec3iii.webp'}
+                src={'/Hero/sec3iii.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -86,7 +86,7 @@ export default function HomePage() {
           <div className="grid  grid-cols-6 grid-rows-1 gap-2">
             <div className="col-span-6">
               <Image
-                src={'/hero/sec4.webp'}
+                src={'/Hero/sec4.webp'}
                 alt=" "
                 className="w-full"
                 width={1000}
@@ -112,7 +112,7 @@ export default function HomePage() {
           <div className="grid grid-cols-4 grid-rows-2 gap-4">
             <div className="col-span-2 row-span-2">
               <Image
-                src="/hero/sec5.webp"
+                src="/Hero/sec5.webp"
                 alt="صورة 1"
                 width={1000}
                 height={1000}
@@ -122,7 +122,7 @@ export default function HomePage() {
 
             <div className="col-span-2 row-span-2 col-start-3">
               <Image
-                src="/hero/sec5ii.webp"
+                src="/Hero/sec5ii.webp"
                 alt="صورة 2"
                 width={1000}
                 height={1000}
@@ -135,12 +135,12 @@ export default function HomePage() {
         <section className="containeres pb-6">
           <div className="grid grid-cols-6 grid-rows-4 gap-4">
             {[
-              '/hero/sec6.webp',
-              '/hero/sec6ii.webp',
-              '/hero/sec6i.webp',
-              '/hero/sec6iii.webp',
-              '/hero/sec6iiii.webp',
-              '/hero/sec6iiiii.webp',
+              '/Hero/sec6.webp',
+              '/Hero/sec6ii.webp',
+              '/Hero/sec6i.webp',
+              '/Hero/sec6iii.webp',
+              '/Hero/sec6iiii.webp',
+              '/Hero/sec6iiiii.webp',
             ].map((src, index) => (
               <div key={index} className="relative col-span-1 row-span-4">
                 <Image
@@ -172,7 +172,7 @@ export default function HomePage() {
           <div className="grid grid-cols-4 grid-rows-2 gap-2">
             <div className="row-span-2">
               <Image
-                src={'/hero/sec7i.webp'}
+                src={'/Hero/sec7i.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -181,7 +181,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec7ii.webp'}
+                src={'/Hero/sec7ii.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -190,7 +190,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec7iii.webp'}
+                src={'/Hero/sec7iii.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -199,7 +199,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec7iiii.webp'}
+                src={'/Hero/sec7iiii.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -211,7 +211,7 @@ export default function HomePage() {
           <div className="grid grid-cols-4 grid-rows-2 gap-2">
             <div className="row-span-2">
               <Image
-                src={'/hero/sec81.webp'}
+                src={'/Hero/sec81.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -220,7 +220,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec82.webp'}
+                src={'/Hero/sec82.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -229,7 +229,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec83.webp'}
+                src={'/Hero/sec83.webp'}
                 width={1000}
                 height={1000}
                 alt=""
@@ -238,7 +238,7 @@ export default function HomePage() {
             <div className="row-span-2">
               {' '}
               <Image
-                src={'/hero/sec84.webp'}
+                src={'/Hero/sec84.webp'}
                 width={1000}
                 height={1000}
                 alt=""
