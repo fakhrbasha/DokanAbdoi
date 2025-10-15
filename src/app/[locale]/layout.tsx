@@ -8,6 +8,7 @@ import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 import { Footer } from './components/footer';
+import { Navbar } from './components/navbar';
 
 // Fonts
 const outfit = Outfit({ subsets: ['latin'], display: 'swap' });
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar />
             {children}
             <Footer />
           </NextIntlClientProvider>

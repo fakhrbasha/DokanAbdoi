@@ -149,8 +149,8 @@ const ArrowButton = ({
 const GradientEdges = () => {
   return (
     <>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-[8vw] max-w-[90px] bg-gradient-to-r from-neutral-900/60 to-neutral-900/0" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-[8vw] max-w-[90px] bg-gradient-to-l from-neutral-900/60 to-neutral-900/0" />
+      {/* <div className="pointer-events-none absolute inset-y-0 left-0 w-[8vw] max-w-[90px] bg-gradient-to-r from-neutral-900/60 to-neutral-900/0" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[8vw] max-w-[90px] bg-gradient-to-l from-neutral-900/60 to-neutral-900/0" /> */}
     </>
   );
 };
