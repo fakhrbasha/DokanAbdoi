@@ -25,24 +25,42 @@ export function CategoryNav() {
         <Link href="/" className="hover:text-primary transition-colors">
           {t('home')}
         </Link>
-        <a href="#" className="hover:text-primary transition-colors">
+        <Link
+          href="/category/large-home-appliances"
+          className="hover:text-primary transition-colors"
+        >
           {t('electronics')}
-        </a>
-        <a href="#" className="hover:text-primary transition-colors">
+        </Link>
+        <Link
+          href="/category/small-home-appliances"
+          className="hover:text-primary transition-colors"
+        >
           {t('appliances')}
-        </a>
-        <a href="#" className="hover:text-primary transition-colors">
+        </Link>
+        <Link
+          href="/category/kitchen-appliances"
+          className="hover:text-primary transition-colors"
+        >
           {t('kitchen')}
-        </a>
-        <a href="#" className="hover:text-primary transition-colors">
+        </Link>
+        <Link
+          href="/category/televisions"
+          className="hover:text-primary transition-colors"
+        >
           {t('tvs')}
-        </a>
-        <a href="#" className="hover:text-primary transition-colors">
+        </Link>
+        <Link
+          href="/category/air-conditioners"
+          className="hover:text-primary transition-colors"
+        >
           {t('offers')}
-        </a>
-        <a href="#" className="hover:text-primary transition-colors">
+        </Link>
+        <Link
+          href="/category/home-essentials"
+          className="hover:text-primary transition-colors"
+        >
           {t('contact')}
-        </a>
+        </Link>
       </nav>
     </div>
   );
