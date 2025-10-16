@@ -3,7 +3,7 @@
 import { ShoppingCart, Heart, Search, Menu, User } from 'lucide-react';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { ThemeToggle } from './theme-toggle';
+// Removed theme toggle
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import { useCartStore, useWishlistStore } from '../lib/store';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
@@ -82,7 +82,7 @@ export function Navbar() {
 
             {/* 🔹 Icons */}
             <div className="flex items-center space-x-2 flex-shrink-0">
-              <ThemeToggle />
+              {/* Removed theme toggle */}
 
               <Link href="/cart">
                 <Button variant="ghost" size="icon" className="relative">
