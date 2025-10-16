@@ -7,6 +7,8 @@ import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider } from 'next-intl';
 // Removed theme provider
 import { Footer } from './components/footer';
+import { Navbar } from './components/navbar';
+import { ThemeProvider } from './components/theme-provider';
 
 // Fonts
 const outfit = Outfit({ subsets: ['latin'], display: 'swap' });
@@ -30,11 +32,24 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <div dir={locale == 'ar' ? 'rtl' : 'ltr'} className={locale === 'ar' ? elMessiri.className : outfit.className}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {children}
-        <Footer />
-      </NextIntlClientProvider>
-    </div>
+    <html dir={locale == 'ar' ? 'rtl' : 'ltr'} lang={locale}>
+      <head />
+      <body
+        className={locale === 'ar' ? elMessiri.className : outfit.className}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Navbar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

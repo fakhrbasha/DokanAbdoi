@@ -77,12 +77,10 @@ export default function ProductDetailPage() {
     .slice(0, 4);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-
+    <div className="min-h-screen flex  flex-col">
       <main className="flex-1">
         {/* Product Details */}
-        <div className="container mx-auto px-4 py-8">
+        <div className="containeres mx-auto px-4 py-8">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
             {/* Product Image */}
             <div className="aspect-square bg-muted rounded-lg overflow-hidden">

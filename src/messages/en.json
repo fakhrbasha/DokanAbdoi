@@ -1,5 +1,14 @@
 {
-    "Home":{
-        "Main":"Hello from en"
-    }
+  "Home": {
+    "Main": "Hello from en"
+  },
+  "Navbar": {
+    "home": "Home",
+    "electronics": "Electronics",
+    "appliances": "Home Appliances",
+    "kitchen": "Kitchen",
+    "tvs": "TVs",
+    "offers": "Special Offers",
+    "contact": "Contact Us"
+  }
 }
